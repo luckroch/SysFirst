@@ -1,5 +1,6 @@
 package lucas.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -44,6 +45,10 @@ public class Aluno implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(name = "sexo")
     private Sexo sexo;
+
+    @OneToOne(mappedBy = "aluno")
+    @JsonIgnore
+    private Livro livro;
 
     @ManyToOne
     @JsonIgnoreProperties("numeros")
@@ -121,6 +126,19 @@ public class Aluno implements Serializable {
 
     public void setSexo(Sexo sexo) {
         this.sexo = sexo;
+    }
+
+    public Livro getLivro() {
+        return livro;
+    }
+
+    public Aluno livro(Livro livro) {
+        this.livro = livro;
+        return this;
+    }
+
+    public void setLivro(Livro livro) {
+        this.livro = livro;
     }
 
     public Turma getNome() {

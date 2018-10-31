@@ -21,6 +21,7 @@
             "cpf": "Cpf",
             "ativo": "Ativo",
             "sexo": "Sexo",
+            "livro": "Livro",
             "nome": "Nome"
         }
     }

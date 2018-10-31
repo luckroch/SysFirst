@@ -9,6 +9,7 @@
                 "main": "Entidades",
                 "aluno": "Aluno",
                 "turma": "Turma",
+                "livro": "Livro",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
