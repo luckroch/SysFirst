@@ -1,0 +1,28 @@
+entity Aluno{
+	nome String required,
+    matricula Integer required,
+    cpf Integer required,
+    ativo Boolean,
+    sexo Sexo
+}
+
+enum Sexo {
+	MASCULINO, FEMININO
+}
+
+
+entity Turma{
+	numero Integer required,
+  	quantidadeAlunos Integer required,
+    descricao String required
+}
+
+relationship OneToMany {
+	Turma{numero} to Aluno{nome}
+}
+
+
+
+
+
+
