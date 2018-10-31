@@ -1,0 +1,43 @@
+{
+    "name": "Turma",
+    "fields": [
+        {
+            "fieldName": "numero",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "quantidadeAlunos",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "descricao",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "numero",
+            "otherEntityName": "aluno",
+            "otherEntityRelationshipName": "nome"
+        }
+    ],
+    "changelogDate": "20181031232536",
+    "entityTableName": "turma",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
