@@ -21,6 +21,18 @@ relationship OneToMany {
 	Turma{numero} to Aluno{nome}
 }
 
+entity Livro {
+	nome String required
+}
+
+relationship OneToOne {
+Livro to Aluno
+}
+
+
+
+
+
 
 
 
