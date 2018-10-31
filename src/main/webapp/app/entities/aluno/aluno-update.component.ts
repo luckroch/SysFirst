@@ -6,6 +6,8 @@ import { JhiAlertService } from 'ng-jhipster';
 
 import { IAluno } from 'app/shared/model/aluno.model';
 import { AlunoService } from './aluno.service';
+import { ILivro } from 'app/shared/model/livro.model';
+import { LivroService } from 'app/entities/livro';
 import { ITurma } from 'app/shared/model/turma.model';
 import { TurmaService } from 'app/entities/turma';
 
@@ -17,11 +19,14 @@ export class AlunoUpdateComponent implements OnInit {
     aluno: IAluno;
     isSaving: boolean;
 
+    livros: ILivro[];
+
     turmas: ITurma[];
 
     constructor(
         private jhiAlertService: JhiAlertService,
         private alunoService: AlunoService,
+        private livroService: LivroService,
         private turmaService: TurmaService,
         private activatedRoute: ActivatedRoute
     ) {}
@@ -31,6 +36,12 @@ export class AlunoUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ aluno }) => {
             this.aluno = aluno;
         });
+        this.livroService.query().subscribe(
+            (res: HttpResponse<ILivro[]>) => {
+                this.livros = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
         this.turmaService.query().subscribe(
             (res: HttpResponse<ITurma[]>) => {
                 this.turmas = res.body;
@@ -67,6 +78,10 @@ export class AlunoUpdateComponent implements OnInit {
 
     private onError(errorMessage: string) {
         this.jhiAlertService.error(errorMessage, null, null);
+    }
+
+    trackLivroById(index: number, item: ILivro) {
+        return item.id;
     }
 
     trackTurmaById(index: number, item: ITurma) {

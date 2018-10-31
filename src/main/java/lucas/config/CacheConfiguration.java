@@ -41,6 +41,7 @@ public class CacheConfiguration {
             cm.createCache(lucas.domain.Aluno.class.getName(), jcacheConfiguration);
             cm.createCache(lucas.domain.Turma.class.getName(), jcacheConfiguration);
             cm.createCache(lucas.domain.Turma.class.getName() + ".numeros", jcacheConfiguration);
+            cm.createCache(lucas.domain.Livro.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
